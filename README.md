@@ -10,11 +10,9 @@ It's built on web standards: regular `<a>` and `<form>` elements, standard HTML 
 
 1. Load the HTMT script as an ES module and initialize it on your document:
 
-```html
-<script type="module">
-  import { htmt } from "./htmt.js";
-  htmt(document.body, true);
-</script>
+```js
+import { htmt } from "htmt";
+htmt(document.body, true);
 ```
 
 2. Add `target` attributes to your links and forms:
