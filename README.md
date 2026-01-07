@@ -8,6 +8,12 @@ It's built on web standards: regular `<a>` and `<form>` elements, standard HTML 
 
 ## Quick Start
 
+### Stackblitz Playground
+
+Try it out live on [Stackblitz](https://stackblitz.com/edit/jacob-ebey-htmt-clkye68h?file=src%2Findex.html)
+
+### Manual Setup
+
 1. Load the HTMT script as an ES module and initialize it on your document:
 
 ```js
@@ -18,7 +24,7 @@ htmt(document.body, true);
 2. Add `target` attributes to your links and forms:
 
 ```html
-<span id="results">Loading...</span>
+<span id="results">...</span>
 
 <a href="/search?q=example" target="results"> Search </a>
 ```
