@@ -1,6 +1,6 @@
 {
   "name": "htmt",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "type": "module",
   "description": "HyperText Markup Targets",
   "packageManager": "pnpm@10.27.0",
@@ -21,5 +21,11 @@
     "htmt.d.ts",
     "htmt.js",
     "README.md"
-  ]
+  ],
+  "exports": {
+    ".": {
+      "types": "./htmt.d.ts",
+      "default": "./htmt.js"
+    }
+  }
 }
