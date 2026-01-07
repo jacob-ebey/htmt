@@ -1,0 +1,10 @@
+<span id="partial-form-target">
+  🎉 PARTIAL FORM CONTENT 🎉
+  <script>
+    console.log("iframe", window.frameElement?.getAttribute("name"));
+    document.currentScript.replaceWith(
+      document.createTextNode(String(Date.now()))
+    );
+  </script>
+</span>
+.

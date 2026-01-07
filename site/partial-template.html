@@ -1,0 +1,12 @@
+<template>
+  <span id="partial-template-target">
+    🎉 PARTIAL TEMPLATE CONTENT 🎉
+    <script>
+      console.log("iframe", window.frameElement?.getAttribute("name"));
+      document.currentScript.replaceWith(
+        document.createTextNode(String(Date.now()))
+      );
+    </script>
+  </span>
+  .
+</template>

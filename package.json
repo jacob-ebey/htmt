@@ -1,0 +1,25 @@
+{
+  "name": "htmt",
+  "version": "0.0.0",
+  "type": "module",
+  "description": "HyperText Markup Targets",
+  "packageManager": "pnpm@10.27.0",
+  "license": "0BSD",
+  "scripts": {
+    "build": "vite build --config ./site/vite.config.ts",
+    "dev": "vite dev --config ./site/vite.config.ts",
+    "start": "vite preview --config ./site/vite.config.ts",
+    "measure": "echo 'src' && cat ./htmt.js | gzip -c | wc -c && echo 'minified' && cat ./htmt.js | terser | gzip -c | wc -c",
+    "test": "playwright test --config=./tests/playwright.config.ts"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "terser": "^5.44.1",
+    "vite": "^7.3.1"
+  },
+  "files": [
+    "htmt.d.ts",
+    "htmt.js",
+    "README.md"
+  ]
+}

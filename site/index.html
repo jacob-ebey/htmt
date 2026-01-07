@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HTML Playground</title>
+    <link rel="stylesheet" href="./simple.css" />
+    <script type="module" src="./main.ts"></script>
+  </head>
+  <body data-test="index-page">
+    <header>
+      <nav>
+        <a href="/" class="current">Home</a>
+        <a href="/about">About</a>
+      </nav>
+      <h1>HTML Playground</h1>
+      <p>A space for experimentation.</p>
+    </header>
+    <main>
+      <p class="notice">Check the terminal for logs.</p>
+      <h2>Partials via &lt;a&gt;</h2>
+      <p>Click the below button to load a HTML partial into this page:</p>
+      <p>
+        <a
+          class="button"
+          href="/partial"
+          target="partial-target"
+          busy="_self"
+          disabled="_self"
+          data-testid="partial-link"
+        >
+          Load Partial
+        </a>
+        &nbsp;
+        <span id="partial-target">---</span>
+      </p>
+      <details>
+        <summary>Source</summary>
+        <pre><code>&lt;span id="partial-target"&gt;---&lt;/span&gt;
+&lt;a href="/partial" target="partial-target"&gt;
+  Load Partial
+&lt;/a&gt;</code></pre>
+      </details>
+      <details>
+        <summary>Response</summary>
+        <pre><code>&lt;span id="partial-target"&gt;
+  🎉 PARTIAL CONTENT 🎉
+  &lt;script&gt;
+    console.log("iframe", window.frameElement?.getAttribute("name"));
+    document.currentScript.replaceWith(
+      document.createTextNode(String(Date.now()))
+    );
+  &lt;/script&gt;
+&lt;/span&gt;
+.
+</code></pre>
+      </details>
+
+      <p>
+        The script to get the current date executes within the
+        <code>partial-target</code> frame. We can delay execution of scripts by
+        using a <code>&lt;template&gt;</code> in the partial response.
+      </p>
+      <p>
+        Click the below button to load a HTML partial into this page and run
+        scripts in the top frame:
+      </p>
+      <p>
+        <a
+          class="button"
+          href="/partial-template"
+          target="partial-template-target"
+          busy="_self"
+          disabled="_self"
+          data-testid="partial-template-link"
+        >
+          Load Partial
+        </a>
+        &nbsp;
+        <span id="partial-template-target">---</span>
+      </p>
+      <details>
+        <summary>Source</summary>
+        <pre><code>&lt;span id="partial-template-target"&gt;---&lt;/span&gt;
+&lt;a href="/partial-template" target="partial-template-target"&gt;
+  Load Partial
+&lt;/a&gt;</code></pre>
+      </details>
+      <details>
+        <summary>Response</summary>
+        <pre><code>&lt;template&gt;
+  &lt;span id="partial-template-target"&gt;
+    🎉 PARTIAL CONTENT 🎉
+    &lt;script&gt;
+      console.log("iframe", window.frameElement?.getAttribute("name"));
+      document.currentScript.replaceWith(
+        document.createTextNode(String(Date.now()))
+      );
+    &lt;/script&gt;
+  &lt;/span&gt;
+&lt;/template&gt;
+</code></pre>
+      </details>
+
+      <h2>Partials via &lt;form&gt;</h2>
+      <p>
+        Submit the below form to load a HTML partial into this page via a form
+        GET request:
+      </p>
+
+      <form
+        method="get"
+        action="/partial-form"
+        target="partial-form-target"
+        busy="_self"
+        disabled="_submitter"
+      >
+        <button type="submit" data-testid="partial-form-submit">
+          Load Partial
+        </button>
+        &nbsp;
+        <span id="partial-form-target">---</span>
+      </form>
+
+      <details>
+        <summary>Source</summary>
+        <pre><code>&lt;span id="partial-form-target"&gt;---&lt;/span&gt;
+&lt;form method="get" action="/partial-form" target="partial-form-target"&gt;
+  &lt;button type="submit"&gt;Load Partial&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </details>
+      <details>
+        <summary>Response</summary>
+        <pre><code>&lt;span id="partial-form-target"&gt;
+  🎉 PARTIAL FORM CONTENT 🎉
+  &lt;script&gt;
+    console.log("iframe", window.frameElement?.getAttribute("name"));
+    document.currentScript.replaceWith(
+      document.createTextNode(String(Date.now()))
+    );
+  &lt;/script&gt;
+&lt;/span&gt;
+.</code></pre>
+      </details>
+
+      <p>And via POST:</p>
+      <form
+        method="post"
+        action="/partial-form-post"
+        target="partial-form-post-target"
+        busy="_self"
+        disabled="_submitter"
+      >
+        <button type="submit" data-testid="partial-form-post-submit">
+          Load Partial
+        </button>
+        &nbsp;
+        <span id="partial-form-post-target">---</span>
+      </form>
+      <details>
+        <summary>Source</summary>
+        <pre><code>&lt;span id="partial-form-post-target"&gt;---&lt;/span&gt;
+&lt;form method="post" action="/partial-form-post" target="partial-form-post-target"&gt;
+  &lt;button type="submit"&gt;Load Partial&lt;/button&gt;
+&lt;/form&gt;</code></pre>
+      </details>
+      <details>
+        <summary>Response</summary>
+        <pre><code>&lt;span id="partial-form-post-target"&gt;
+  🎉 PARTIAL FORM POST CONTENT 🎉
+  &lt;script&gt;
+    console.log("iframe", window.frameElement?.getAttribute("name"));
+    document.currentScript.replaceWith(
+      document.createTextNode(String(Date.now()))
+    );
+  &lt;/script&gt;
+&lt;/span&gt;
+.</code></pre>
+      </details>
+    </main>
+  </body>
+</html>
