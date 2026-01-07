@@ -10,7 +10,7 @@ It's built on web standards: regular `<a>` and `<form>` elements, standard HTML 
 
 ### Stackblitz Playground
 
-Try it out live on [Stackblitz](https://stackblitz.com/edit/jacob-ebey-htmt-clkye68h?file=src%2Findex.html)
+Try it out live on [Stackblitz](https://stackblitz.com/edit/htmt-playground?file=src%2Findex.html)
 
 ### Manual Setup
 
