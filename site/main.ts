@@ -1,4 +1,4 @@
-import { htmt } from "../htmt";
+import { htmt } from "../htmt.js";
 
 htmt(document, true);
 

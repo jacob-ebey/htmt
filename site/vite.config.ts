@@ -3,6 +3,7 @@ import { defineConfig } from "vite";
 export default defineConfig({
   root: "site",
   build: {
+    modulePreload: false,
     rollupOptions: {
       input: [
         "site/index.html",

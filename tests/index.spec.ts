@@ -1,4 +1,4 @@
-import { test, expect, Route } from "@playwright/test";
+import { test, expect, type Route } from "@playwright/test";
 
 test("concurrent partial loads set aria-disabled while pending", async ({
   page,
