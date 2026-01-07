@@ -1,6 +1,6 @@
 {
   "name": "htmt",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "description": "HyperText Markup Targets",
   "packageManager": "pnpm@10.27.0",
@@ -26,6 +26,7 @@
     ".": {
       "types": "./htmt.d.ts",
       "default": "./htmt.js"
-    }
+    },
+    "./package.json": "./package.json"
   }
 }
