@@ -116,6 +116,8 @@ Wrap scripts in a `<template>` in the response `<head>` to delay execution until
 
 HTMT extracts templates, moves their content to the main document, and runs any scripts there.
 
+If a template has a `target` attribute, HTMT treats it as an out-of-band (OOB) swap, replacing the specified element in the main document with the contents of the template.
+
 ### Works Without JavaScript
 
 Your links and forms remain fully functional HTML. Without HTMT loaded, users can still click a link with a `target` attribute—it opens the partial response in a new page or tab, just like normal.

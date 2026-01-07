@@ -4,12 +4,12 @@ export default defineConfig({
   forbidOnly: !!process.env.CI,
   reporter: "line",
   webServer: {
-    command: "pnpm start",
-    url: "http://localhost:3000",
+    command: "pnpm dev",
+    url: "http://localhost:5173",
     reuseExistingServer: !process.env.CI,
   },
   use: {
-    baseURL: "http://localhost:3000",
+    baseURL: "http://localhost:5173",
     trace: "on-first-retry",
   },
   projects: [

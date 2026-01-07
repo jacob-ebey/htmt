@@ -23,7 +23,14 @@ export default defineConfig({
           if (req.url === "/partial-form-post" && req.method === "POST") {
             req.method = "GET";
           }
-          next();
+          if (
+            process.env.NODE_ENV !== "test" &&
+            req.url?.startsWith("/partial")
+          ) {
+            setTimeout(next, 1000);
+          } else {
+            next();
+          }
         });
       },
     },

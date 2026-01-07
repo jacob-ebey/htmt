@@ -49,9 +49,10 @@ let mkFrame = (name) => {
 
     // @ts-expect-error - it will be non-null, onload would not have fired otherwise
     cd.querySelectorAll("head>template").forEach((t) => {
-      t.id
+      let target = t.getAttribute("target");
+      target
         ? // @ts-expect-error - it's a template element
-          document.getElementById(t.id)?.replaceWith(t.content)
+          document.getElementById(target)?.replaceWith(t.content)
         : // @ts-expect-error - it's a template element
           f.append(t.content);
     });

@@ -22,12 +22,14 @@ test("concurrent partial loads set aria-disabled while pending", async ({
 
   const targetPartial = page.locator("#partial-target");
   const targetTemplate = page.locator("#partial-template-target");
+  const targetTemplateOOB = page.locator("#partial-template-oob-target");
   const targetFormGet = page.locator("#partial-form-target");
   const targetFormPost = page.locator("#partial-form-post-target");
 
   // Sanity: initial targets show placeholder
   await expect(targetPartial).toHaveText("---");
   await expect(targetTemplate).toHaveText("---");
+  await expect(targetTemplateOOB).toHaveText("---");
   await expect(targetFormGet).toHaveText("---");
   await expect(targetFormPost).toHaveText("---");
 
@@ -62,6 +64,7 @@ test("concurrent partial loads set aria-disabled while pending", async ({
   // Now wait for targets to be updated (they include "PARTIAL" text in the responses)
   await expect(targetPartial).toContainText("PARTIAL");
   await expect(targetTemplate).toContainText("PARTIAL");
+  await expect(targetTemplateOOB).toContainText("OOB");
   await expect(targetFormGet).toContainText("PARTIAL");
   await expect(targetFormPost).toContainText("PARTIAL");
 
